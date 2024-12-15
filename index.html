@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestie Forever</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            color: #ff66b3;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .yes-button {
+            background-color: #66ff66;
+            color: white;
+        }
+
+        .no-button {
+            background-color: #ff6666;
+            color: white;
+            position: absolute;
+        }
+
+        .cat-sad {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .celebration {
+            display: none;
+            font-size: 2em;
+            color: #ff33cc;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my bestie forever?</h1>
+    <button class="button yes-button" onclick="sayYes()">Yes</button>
+    <button class="button no-button" onmouseover="moveNoButton()">No</button>
+
+    <img class="cat-sad" src="https://i.imgur.com/3WfW6Xx.png" alt="Sad Cat" width="150">
+
+    <div id="celebration" class="celebration">Thank you! I love you forever! 🎉🎊</div>
+
+    <script>
+        const noButton = document.querySelector('.no-button');
+        const catSad = document.querySelector('.cat-sad');
+        const celebration = document.getElementById('celebration');
+
+        function moveNoButton() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            noButton.style.top = `${y}px`;
+            noButton.style.left = `${x}px`;
+            catSad.style.display = 'block';
+        }
+
+        function sayYes() {
+            document.body.innerHTML = ''; // Clear everything
+            celebration.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
