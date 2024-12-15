@@ -66,13 +66,13 @@
     <button class="button yes-button" onclick="sayYes()">Yes</button>
     <button class="button no-button" onmouseover="moveNoButton()">No</button>
 
-    <img class="cat-sad" src="https://i.imgur.com/3WfW6Xx.png" alt="Sad Cat" width="150">
+    <img id="catSad" class="cat-sad" src="https://i.imgur.com/3WfW6Xx.png" alt="Sad Cat" width="150">
 
     <div id="celebration" class="celebration">Thank you! I love you forever! 🎉🎊</div>
 
     <script>
         const noButton = document.querySelector('.no-button');
-        const catSad = document.querySelector('.cat-sad');
+        const catSad = document.querySelector('#catSad');
         const celebration = document.getElementById('celebration');
 
         function moveNoButton() {
@@ -84,7 +84,10 @@
         }
 
         function sayYes() {
-            document.body.innerHTML = ''; // Clear everything
+            document.querySelector('h1').style.display = 'none';
+            document.querySelector('.yes-button').style.display = 'none';
+            document.querySelector('.no-button').style.display = 'none';
+            catSad.style.display = 'none';
             celebration.style.display = 'block';
         }
     </script>
